@@ -1,15 +1,13 @@
 package org.example;
 
-import java.util.Scanner;
-
 public class newCustomer {
 
     //make variables private to ensure that other classes cannot change them
-    private String firstname;
-    private String lastname;
-    private String password;
-    private int mailbox;
-    private String department;
+    public String firstname; //had to change to public to make it run
+    public String lastname; //same as above
+    public String password;
+    public int mailbox;
+    public String department;
 
 
 
@@ -20,21 +18,21 @@ public class newCustomer {
         this.firstname = firstname; //"this" refers to the Class level variable
         this.lastname = lastname;
         System.out.println("Email has been created for "+this.firstname+" "+this.lastname); //confirmation statement
-        setDepartment();
+        setDepartment(1);
         this.department= getDepartment();
         System.out.println(this.firstname+" "+this.lastname+" works in "+this.department);
         setPassword(8);
         System.out.println(getPassword());//creates password of 8 characters
-        setMailbox();
+        setMailbox(12);
         System.out.println(this.firstname+" "+this.lastname+"'s mailbox can hold "+getMailbox()+"MB of Data.");
         setEmailAddress();
         System.out.println(getEmailAddress()+" has been created.");
 
     }
-    private void setDepartment(){
+    public void setDepartment(int choice){
         System.out.println("Enter the department of employee \n1 Computing\n2 Engineering\n3 None");
-        Scanner sc = new Scanner(System.in);
-        int choice = sc.nextInt();
+//        Scanner sc = new Scanner(System.in);
+//        int choice = sc.nextInt();
         if(choice==1){
             this.department = "Computing";
         }
@@ -46,12 +44,12 @@ public class newCustomer {
         }
     }
 
-    private String getDepartment(){
+    public String getDepartment(){
         return this.department;
     }
 
     //Generate the random password
-    private void setPassword(int length){
+    public void setPassword(int length){
 
         char[] password = new char[length]; //create a blank array of 8 characters
         //myList is a string that characters can be randomly taken from
@@ -65,16 +63,16 @@ public class newCustomer {
 
     }
 
-    private String getPassword(){
+    public String getPassword(){
         return this.password;
     }
 
     //set the mailbox capacity
 
-    private void setMailbox(){
+    public void setMailbox(int size){
         System.out.println("Enter the size of mailbox for "+this.firstname);
-        Scanner sc = new Scanner(System.in);
-        int size =sc.nextInt();
+//        Scanner sc = new Scanner(System.in);
+//        int size =sc.nextInt();
         this.mailbox=size;
     }
 
